@@ -32,6 +32,28 @@ let g:lightline = {'colorscheme': 'seoul256'}
 let g:pandoc#syntax#conceal#use = 0
 let g:seoul256_background = 235
 
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.local/share/nvim/plugged')
+
+Plug 'dense-analysis/ale'
+Plug 'junegunn/fzf.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'preservim/nerdtree'
+Plug 'junegunn/seoul256.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-eunuch'
+Plug 'sickill/vim-pasta'
+Plug 'sheerun/vim-polyglot'
+
+call plug#end()
+
 colorscheme seoul256
 
 filetype plugin indent on
