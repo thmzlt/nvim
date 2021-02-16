@@ -112,16 +112,6 @@ nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gd :Gdiff<cr>
 
-"nnoremap <silent> <leader>ld  <cmd>lua vim.lsp.buf.definition()<CR>
-"nnoremap <silent> <leader>le  <cmd>lua vim.lsp.buf.declaration()<CR>
-"nnoremap <silent> <leader>lh  <cmd>lua vim.lsp.buf.hover()<CR>
-"nnoremap <silent> <leader>li  <cmd>lua vim.lsp.buf.implementation()<CR>
-"nnoremap <silent> <leader>lr  <cmd>lua vim.lsp.buf.references()<CR>
-"nnoremap <silent> <leader>ls  <cmd>lua vim.lsp.buf.signature_help()<CR>
-"nnoremap <silent> <leader>lo  <cmd>lua vim.lsp.buf.document_symbol()<CR>
-"nnoremap <silent> <leader>lw  <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-"nnoremap <silent> <leader>lt  <cmd>lua vim.lsp.buf.type_definition()<CR>
-
 nnoremap <leader>lc :clearjumps<cr>
 nnoremap <leader>rc :CocRestart<cr><cr>
 nnoremap <leader>ev :e $MYVIMRC<cr>
@@ -152,25 +142,8 @@ vnoremap L $
 
 augroup filetypes
   autocmd BufNewFile,BufRead *.adoc setf asciidoc
-  autocmd BufNewFile,BufRead *.hob setf hobbes
   autocmd BufNewFile,BufRead *.json setf javascript
   autocmd BufNewFile,BufRead *.md.pandoc setf markdown.pandoc
   autocmd FileType markdown let g:indentLine_conceallevel = 0
-  "autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
   autocmd FileType sql inoremap <C-c> <esc>
 augroup END
-
-"=== LSP Settings
-
-"lua << EOF
-"
-"local on_attach_vim = function(client)
-"  require'completion'.on_attach(client)
-"  require'diagnostic'.on_attach(client)
-"end
-"
-"require'lspconfig'.pyls.setup{
-"  on_attach
-"}
-"
-"EOF
